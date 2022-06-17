@@ -72,6 +72,9 @@ jobs:
       run: |
         cd openwrt/package/lean
         git clone https://github.com/thinktip/luci-theme-neobird.git
+        rm -rf package/helloworld
+        git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
+        git -C package/helloworld pull
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
