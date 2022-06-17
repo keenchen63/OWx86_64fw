@@ -67,6 +67,11 @@ jobs:
         chmod +x $DIY_P1_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
+        
+    - name: Theme
+      run: |
+        cd openwrt/package/lean
+        git clone https://github.com/thinktip/luci-theme-neobird.git
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
